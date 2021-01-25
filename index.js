@@ -1,16 +1,18 @@
-function toplam(arr, agirlik) {
+function sum(arr, agirlik) {
   let toplam = 0;
   for (let i = 0; i < arr.length; i++) {
-    let ara = arr[i] * agirlik[i];
-    toplam += ara;
+    toplam += arr[i] * agirlik[i];
   }
-
   return toplam;
 }
 
-const top = toplam([0.999, 0.0067], [1.1, 0.1]);
+function sigmoid(toplam) {
+  return 1 / (1 + Math.exp(-toplam));
+}
 
-const sig = 1 / (1 + Math.exp(-top));
+const top = sum([0.999, 0.0067], [1.1, 0.1]);
+
+const sig = sigmoid(top);
 
 console.log(sig);
 console.log(top);
