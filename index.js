@@ -1,18 +1,16 @@
-const brain = require('brain.js');
+function toplam(arr, agirlik) {
+  let toplam = 0;
+  for (let i = 0; i < arr.length; i++) {
+    let ara = arr[i] * agirlik[i];
+    toplam += ara;
+  }
 
-const net = new brain.NeuralNetwork({ hiddenLayers: [4] });
+  return toplam;
+}
 
-const trainingData = [
-  { input: [0, 0], output: [0] },
-  { input: [0, 1], output: [1] },
-  { input: [1, 0], output: [1] },
-  { input: [1, 1], output: [0] },
-];
+const top = toplam([0.999, 0.0067], [1.1, 0.1]);
 
-net.train(trainingData, {
-  iterations: 2,
-  log: (error) => console.log(error),
-  logPeriod: 1,
-});
+const sig = 1 / (1 + Math.exp(-top));
 
-console.log(net.run([0, 1]));
+console.log(sig);
+console.log(top);
