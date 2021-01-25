@@ -1,13 +1,13 @@
-function sum(arr, agirlik) {
-  let toplam = 0;
-  for (let i = 0; i < arr.length; i++) {
-    toplam += arr[i] * agirlik[i];
+function sum(nodeValues, weights) {
+  let result = 0;
+  for (let i = 0; i < nodeValues.length; i++) {
+    result += nodeValues[i] * weights[i];
   }
-  return toplam;
+  return result;
 }
 
-function sigmoid(toplam) {
-  return 1 / (1 + Math.exp(-toplam));
+function sigmoid(sum) {
+  return 1 / (1 + Math.exp(-sum));
 }
 
 const top = sum([0.999, 0.0067], [1.1, 0.1]);
