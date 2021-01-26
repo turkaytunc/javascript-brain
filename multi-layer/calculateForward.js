@@ -2,31 +2,52 @@ const net = require('./util/net');
 const sigmoid = require('./util/sigmoid');
 
 function calculateForward(giris, agirlik) {
-  let h1 = net(giris, agirlik[0]);
-  console.log('h1 toplam = ', h1);
+  let h = [];
+  let t = [];
+  let q = [];
+  let hSigmoid = [];
+  let tSigmoid = [];
+  let qSigmoid = [];
 
-  let h1Sigmoid = sigmoid(h1);
-  console.log('h1 sigmoid = ', h1Sigmoid);
+  h.push(net(giris, agirlik[0]));
+  hSigmoid.push(sigmoid(h[0]));
 
-  let h2 = net(giris, agirlik[1]);
-  console.log('h2 toplam = ', h2);
+  h.push(net(giris, agirlik[1]));
+  hSigmoid.push(sigmoid(h[1]));
 
-  let h2Sigmoid = sigmoid(h2);
-  console.log('h2 sigmoid = ', h2Sigmoid);
+  t.push(net([hSigmoid[0], hSigmoid[1]], agirlik[2]));
+  tSigmoid.push(sigmoid(t[0]));
 
-  let q1 = net([h1Sigmoid, h2Sigmoid], agirlik[2]);
-  console.log('q1 toplam = ', q1);
+  t.push(net([hSigmoid[0], hSigmoid[1]], agirlik[3]));
+  tSigmoid.push(sigmoid(t[1]));
 
-  let q1Sigmoid = sigmoid(q1);
-  console.log('q1 sigmoid = ', q1Sigmoid);
+  console.log('h1 toplam = ', h[0]);
+  console.log('h2 toplam = ', h[1]);
+  console.log('t1 toplam = ', t[0]);
+  console.log('t2 toplam = ', t[1]);
 
-  let q2 = net([h1Sigmoid, h2Sigmoid], agirlik[3]);
-  console.log('q2 toplam = ', q2);
+  console.log('------------------');
 
-  let q2Sigmoid = sigmoid(q2);
-  console.log('q1 sigmoid = ', q2Sigmoid);
+  console.log('h1 sigmoid = ', hSigmoid[0]);
+  console.log('h2 sigmoid = ', hSigmoid[1]);
+  console.log('t1 sigmoid = ', tSigmoid[0]);
+  console.log('t2 sigmoid = ', tSigmoid[1]);
 
-  return { h1Sigmoid, h2Sigmoid, q1Sigmoid, q2Sigmoid };
+  console.log('---------------------');
+
+  q.push(net([tSigmoid[0], tSigmoid[1]], agirlik[4]));
+  q.push(net([tSigmoid[0], tSigmoid[1]], agirlik[5]));
+
+  qSigmoid.push(sigmoid(q[0]));
+  qSigmoid.push(sigmoid(q[1]));
+
+  console.log('q1 toplam = ', q[0]);
+  console.log('q2 toplam = ', q[1]);
+
+  console.log('q1 sigmoid = ', qSigmoid[0]);
+  console.log('q1 sigmoid = ', qSigmoid[1]);
+
+  return { hSigmoid, tSigmoid, qSigmoid };
 }
 
 module.exports = calculateForward;
