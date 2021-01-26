@@ -1,14 +1,19 @@
 {
-  "name": "brain",
+  "name": "javascript-brain",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "brain.js": "^2.0.0-beta.2"
-  }
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/turkaytunc/javascript-brain.git"
+  },
+  "author": "Turkay Tunc",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/turkaytunc/javascript-brain/issues"
+  },
+  "homepage": "https://github.com/turkaytunc/javascript-brain#readme"
 }
