@@ -1,35 +1,24 @@
-const sigmoid = require('./util/sigmoid');
 const yeniAgirlik = require('./util/yeniAgirlik');
-const net = require('./util/net');
 const errorValue = require('./util/errorValue');
 const layerErrorValue = require('./util/layerErrorValue');
+const calculateForward = require('./util/calculateForward');
+
+// calculateNetwork(
+//   [10, 30, 20],
+//   [
+//     [0.2, -0.1, 0.4],
+//     [0.7, -1.2, 1.2],
+//     [1.1, 0.1],
+//     [3.1, 1.17],
+//   ],
+//   [1, 0],
+//   0.1
+// );
 
 function calculateNetwork(giris, agirlik, beklenenCikis, katsayi) {
-  let h1 = net(giris, agirlik[0]);
-  console.log('h1 toplam = ', h1);
+  const { h1Sigmoid, h2Sigmoid, q1Sigmoid, q2Sigmoid } = calculateForward(giris, agirlik);
 
-  let h1Sigmoid = sigmoid(h1);
-  console.log('h1 sigmoid = ', h1Sigmoid);
-
-  let h2 = net(giris, agirlik[1]);
-  console.log('h2 toplam = ', h2);
-
-  let h2Sigmoid = sigmoid(h2);
-  console.log('h2 sigmoid = ', h2Sigmoid);
-
-  let q1 = net([h1Sigmoid, h2Sigmoid], agirlik[2]);
-  console.log('q1 toplam = ', q1);
-
-  let q1Sigmoid = sigmoid(q1);
-  console.log('q1 sigmoid = ', q1Sigmoid);
-
-  let q2 = net([h1Sigmoid, h2Sigmoid], agirlik[3]);
-  console.log('q2 toplam = ', q2);
-
-  let q2Sigmoid = sigmoid(q2);
-  console.log('q1 sigmoid = ', q2Sigmoid);
-
-  console.log('Geriye donus basladi');
+  console.log('\nGeriye donus basladi\n');
 
   let q1HataDegeri = errorValue(q1Sigmoid, beklenenCikis[0]);
   console.log('q1 hata degeri = ', q1HataDegeri);
@@ -49,7 +38,7 @@ function calculateNetwork(giris, agirlik, beklenenCikis, katsayi) {
   let h2HataDegeri = layerErrorValue(h2BagilHata, h2Sigmoid);
   console.log('h2 hata degeri = ', h2HataDegeri);
 
-  console.log('Yeni agirliklar');
+  console.log('\nYeni agirliklar\n');
 
   let i1_h1 = yeniAgirlik(katsayi, h1HataDegeri, giris[0], agirlik[0][0]);
   console.log('giris 1 - ara katman 1 arasi = ', i1_h1);
