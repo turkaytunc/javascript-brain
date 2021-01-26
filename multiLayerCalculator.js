@@ -1,6 +1,6 @@
-const yeniAgirlik = require('./util/yeniAgirlik');
-const calculateForward = require('./calculateForward');
-const calculateError = require('./calculateError');
+const yeniAgirlik = require('./multi-layer/util/yeniAgirlik');
+const calculateForward = require('./multi-layer/calculateForward');
+const calculateError = require('./multi-layer/calculateError');
 
 function calculateNetwork(giris, agirlik, beklenenCikis, katsayi) {
   const { h1Sigmoid, h2Sigmoid, q1Sigmoid, q2Sigmoid } = calculateForward(giris, agirlik);
