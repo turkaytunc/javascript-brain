@@ -88,8 +88,21 @@ function calculateNetwork(giris, agirlik, beklenenCikis, katsayi) {
   q2Yeni = [t2_q1, t2_q2];
 }
 
-calculateNetwork([10, 30, 20], [h1Yeni, h2Yeni, t1Yeni, t2Yeni, q1Yeni, q2Yeni], [1, 0], 0.1);
+function iterateCalculation(iterasyon) {
+  for (let i = 0; i < iterasyon; i++) {
+    calculateNetwork([10, 30, 20], [h1Yeni, h2Yeni, t1Yeni, t2Yeni, q1Yeni, q2Yeni], [1, 0], 0.1);
+    console.log('\n------------');
+    console.log(`iterasyon ${i + 1} bitti.`);
+    console.log('------------');
+    console.log('yeni degerler');
+    console.log(`
+    h1: ${h1Yeni}
+    h2: ${h2Yeni}
+    t1: ${t1Yeni}
+    t2: ${t2Yeni}
+    q1: ${q1Yeni}
+    q2: ${q2Yeni}`);
+  }
+}
 
-console.log('------------');
-console.log('yeni degerler');
-console.log(h1Yeni, h2Yeni, t1Yeni, t2Yeni, q1Yeni, q2Yeni);
+iterateCalculation(15);
