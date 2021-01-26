@@ -105,4 +105,4 @@ function iterateCalculation(iterasyon) {
   }
 }
 
-iterateCalculation(15);
+iterateCalculation(1);
