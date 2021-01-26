@@ -1,5 +1,5 @@
-const errorValue = require('./errorValue');
-const layerErrorValue = require('./layerErrorValue');
+const errorValue = require('./util/errorValue');
+const layerErrorValue = require('./util/layerErrorValue');
 
 function calculateError(q1Sigmoid, q2Sigmoid, h1Sigmoid, h2Sigmoid, agirlik, beklenenCikis) {
   let q1HataDegeri = errorValue(q1Sigmoid, beklenenCikis[0]);

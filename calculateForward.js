@@ -1,5 +1,5 @@
-const net = require('./net');
-const sigmoid = require('./sigmoid');
+const net = require('./util/net');
+const sigmoid = require('./util/sigmoid');
 
 function calculateForward(giris, agirlik) {
   let h1 = net(giris, agirlik[0]);

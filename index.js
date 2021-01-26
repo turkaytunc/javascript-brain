@@ -1,6 +1,6 @@
 const yeniAgirlik = require('./util/yeniAgirlik');
-const calculateForward = require('./util/calculateForward');
-const calculateError = require('./util/calculateError');
+const calculateForward = require('./calculateForward');
+const calculateError = require('./calculateError');
 
 function calculateNetwork(giris, agirlik, beklenenCikis, katsayi) {
   const { h1Sigmoid, h2Sigmoid, q1Sigmoid, q2Sigmoid } = calculateForward(giris, agirlik);
