@@ -53,8 +53,9 @@ function calculateError(qSigmoid, hSigmoid, tSigmoid, agirlik, beklenenCikis) {
   console.log('h2 hata degeri = ', h2HataDegeri);
 
   let hHataDegeri = [h1HataDegeri, h2HataDegeri];
+  let tHataDegeri = [t1HataDegeri, t2HataDegeri];
 
-  return { hHataDegeri, t1HataDegeri, t2HataDegeri, q1HataDegeri, q2HataDegeri };
+  return { hHataDegeri, tHataDegeri, q1HataDegeri, q2HataDegeri };
 }
 
 module.exports = calculateError;
