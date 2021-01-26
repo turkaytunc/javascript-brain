@@ -9,6 +9,7 @@ let q2Yeni = [1, 1];
 
 function iterateCalculation(iterasyon) {
   for (let i = 0; i < iterasyon; i++) {
+    // tum hesabi yapan fonksiyon
     let result = multiLayerCalculator([10, 30, 20], [h1Yeni, h2Yeni, t1Yeni, t2Yeni, q1Yeni, q2Yeni], [1, 0], 0.1);
 
     h1Yeni = result.h1Yeni;
