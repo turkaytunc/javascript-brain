@@ -2,7 +2,7 @@ const yeniAgirlik = require('./util/yeniAgirlik');
 const calculateForward = require('./calculateForward');
 const calculateError = require('./calculateError');
 
-// calculateNetwork(
+// multiLayerCalculator(
 //   [10, 30, 20],
 //   [
 //     [0.2, -0.1, 0.4], h1
@@ -22,7 +22,7 @@ function multiLayerCalculator(giris, agirlik, beklenenCikis, katsayi) {
   console.log('\nGeriye donus basladi\n');
   console.log('--------');
 
-  const { hHataDegeri, tHataDegeri, q1HataDegeri, q2HataDegeri } = calculateError(
+  const { hHataDegeri, tHataDegeri, qHataDegeri } = calculateError(
     qSigmoid,
     hSigmoid,
     tSigmoid,
@@ -62,11 +62,11 @@ function multiLayerCalculator(giris, agirlik, beklenenCikis, katsayi) {
 
   console.log('----------------------------------------');
 
-  let t1_q1 = yeniAgirlik(katsayi, q1HataDegeri, tSigmoid[0], agirlik[4][0]);
-  let t1_q2 = yeniAgirlik(katsayi, q2HataDegeri, tSigmoid[0], agirlik[5][0]);
+  let t1_q1 = yeniAgirlik(katsayi, qHataDegeri[0], tSigmoid[0], agirlik[4][0]);
+  let t1_q2 = yeniAgirlik(katsayi, qHataDegeri[1], tSigmoid[0], agirlik[5][0]);
 
-  let t2_q1 = yeniAgirlik(katsayi, q1HataDegeri, tSigmoid[1], agirlik[4][1]);
-  let t2_q2 = yeniAgirlik(katsayi, q2HataDegeri, tSigmoid[1], agirlik[5][1]);
+  let t2_q1 = yeniAgirlik(katsayi, qHataDegeri[0], tSigmoid[1], agirlik[4][1]);
+  let t2_q2 = yeniAgirlik(katsayi, qHataDegeri[1], tSigmoid[1], agirlik[5][1]);
 
   console.log('t1 - cikis 1 arasi = ', t1_q1);
   console.log('t1 - cikis 2 arasi = ', t1_q2);

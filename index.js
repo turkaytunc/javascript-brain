@@ -4,8 +4,8 @@ let h1Yeni = [0.2, -0.1, 0.4];
 let h2Yeni = [0.7, -1.2, 1.2];
 let t1Yeni = [1.1, 0.1];
 let t2Yeni = [3.1, 1.17];
-let q1Yeni = [1.2, 0.3];
-let q2Yeni = [2.1, 1.07];
+let q1Yeni = [1, 1];
+let q2Yeni = [1, 1];
 
 function iterateCalculation(iterasyon) {
   for (let i = 0; i < iterasyon; i++) {
@@ -33,4 +33,4 @@ function iterateCalculation(iterasyon) {
   }
 }
 
-iterateCalculation(2);
+iterateCalculation(1);

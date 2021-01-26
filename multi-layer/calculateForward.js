@@ -1,6 +1,20 @@
 const net = require('./util/net');
 const sigmoid = require('./util/sigmoid');
 
+// multiLayerCalculator(
+//   [10, 30, 20],
+//   [
+//     [0.2, -0.1, 0.4], h1
+//     [0.7, -1.2, 1.2], h2
+//     [1.1, 0.1],       t1
+//     [3.1, 1.17],      t2
+//     [1.1, 0.1],       q1
+//     [3.1, 1.17],      q2
+//   ],
+//   [1, 0],
+//   0.1
+// );
+
 function calculateForward(giris, agirlik) {
   let h = [];
   let t = [];
@@ -23,13 +37,13 @@ function calculateForward(giris, agirlik) {
 
   console.log('h1 toplam = ', h[0]);
   console.log('h2 toplam = ', h[1]);
-  console.log('t1 toplam = ', t[0]);
-  console.log('t2 toplam = ', t[1]);
+  console.log('h1 sigmoid = ', hSigmoid[0]);
+  console.log('h2 sigmoid = ', hSigmoid[1]);
 
   console.log('------------------');
 
-  console.log('h1 sigmoid = ', hSigmoid[0]);
-  console.log('h2 sigmoid = ', hSigmoid[1]);
+  console.log('t1 toplam = ', t[0]);
+  console.log('t2 toplam = ', t[1]);
   console.log('t1 sigmoid = ', tSigmoid[0]);
   console.log('t2 sigmoid = ', tSigmoid[1]);
 

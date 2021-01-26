@@ -1,7 +1,7 @@
 const errorValue = require('./util/errorValue');
 const layerErrorValue = require('./util/layerErrorValue');
 
-// calculateNetwork(
+// multiLayerCalculator(
 //   [10, 30, 20],
 //   [
 //     [0.2, -0.1, 0.4], h1
@@ -54,8 +54,9 @@ function calculateError(qSigmoid, hSigmoid, tSigmoid, agirlik, beklenenCikis) {
 
   let hHataDegeri = [h1HataDegeri, h2HataDegeri];
   let tHataDegeri = [t1HataDegeri, t2HataDegeri];
+  let qHataDegeri = [q1HataDegeri, q2HataDegeri];
 
-  return { hHataDegeri, tHataDegeri, q1HataDegeri, q2HataDegeri };
+  return { hHataDegeri, tHataDegeri, qHataDegeri };
 }
 
 module.exports = calculateError;
